@@ -1,0 +1,87 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    /* overflow-y: hidden; */
+    position: relative;
+}
+
+img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transition: filter 1s linear;
+}
+
+.blur {
+    filter: blur(10px)
+}
+
+.text {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    height: 100vh;
+}
+
+#about {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+#more {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+#projects {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+#personal {
+    position: absolute;
+    top: 90px;
+    right: 40px;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+#everything {
+    position: absolute;
+    top: 130px;
+    right: 40px;
+    cursor: pointer;
+    transition: opacity 1s ease;
+}
+
+#about-desc {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    transition: visibility 1s ease;
+    transition: opacity 1s ease;
+    cursor: default;
+}
+
+#magazine {
+    position: absolute;
+}
+
+.fade-opacity {
+    opacity: 0;
+}
+
+.half-fade {
+    opacity: 0.5;
+}
