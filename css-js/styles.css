@@ -2,15 +2,13 @@ body,
 html {
     margin: 0;
     padding: 0;
-    /* overflow-y: hidden; */
-    position: relative;
+    /* scrollbar-width: none; */
 }
 
 img {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+    /* width: 100vw; */
+    /* height: 100vh; */
     transition: filter 1s linear;
 }
 
@@ -22,11 +20,11 @@ img {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
-    height: 100vh;
+    min-width: 100%;
 }
 
 #about {
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 30px;
     cursor: pointer;
@@ -34,7 +32,7 @@ img {
 }
 
 #more {
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 30px;
     cursor: pointer;
@@ -42,7 +40,7 @@ img {
 }
 
 #projects {
-    position: absolute;
+    position: fixed;
     top: 50px;
     right: 40px;
     cursor: pointer;
@@ -50,7 +48,7 @@ img {
 }
 
 #personal {
-    position: absolute;
+    position: fixed;
     top: 90px;
     right: 40px;
     cursor: pointer;
@@ -58,7 +56,7 @@ img {
 }
 
 #everything {
-    position: absolute;
+    position: fixed;
     top: 130px;
     right: 40px;
     cursor: pointer;
@@ -66,7 +64,7 @@ img {
 }
 
 #about-desc {
-    position: absolute;
+    position: fixed;
     top: 50px;
     left: 30px;
     transition: visibility 1s ease;
@@ -74,8 +72,10 @@ img {
     cursor: default;
 }
 
-#magazine {
+.pointer{
     position: absolute;
+    height: 15px;
+    width: 15px;
 }
 
 .fade-opacity {
