@@ -115,7 +115,7 @@ function animateIcon(elem) {
 function rePlaceIcons() {
     rePlaceIcon(document.getElementById("magazine"), .42, .39)
     rePlaceIcon(document.getElementById("magazine-circle"), .42, .39)
-    rePlaceText(document.getElementById("magazine-desc"), .42, .39)
+    rePlaceText(document.getElementById("magazine-desc"), .45, .355)
     rePlaceIcon(document.getElementById("computer"), .55, .60)
     rePlaceIcon(document.getElementById("computer-circle"), .55, .60)
 }
