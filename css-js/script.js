@@ -1,4 +1,15 @@
+/* Z-Indexes:
+
+image: 1 | 4
+
+pointers: -1 | 3
+circles : -1 | 2
+
+text: 5
+pointer-desc: 3 */
+
 const image = document.getElementById("image");
+image.style.zIndex = 1;
 
 const aboutdesc = document.getElementById("about-desc");
 // initially fade to invert
@@ -13,17 +24,69 @@ more.addEventListener('click', toggleBlurMore);
 const projects = document.getElementById("projects");
 // initially fade(s) to invert(s)
 projects.classList.toggle('fade-opacity');
+projects.addEventListener('click', function () {
+    bringClassToFront("projects"); toggleDots(1);
+    image.classList.toggle('blur');
+    about.classList.toggle('half-fade');
+    about.classList.toggle('no-click');
+    projects.classList.toggle('fade-opacity');
+    personal.classList.toggle('fade-opacity');
+    everything.classList.toggle('fade-opacity');
+});
 
 const personal = document.getElementById("personal");
 personal.classList.toggle('fade-opacity');
+personal.addEventListener('click', function () {
+    bringClassToFront("personal"); toggleDots(1);
+    image.classList.toggle('blur');
+    about.classList.toggle('half-fade');
+    about.classList.toggle('no-click');
+    projects.classList.toggle('fade-opacity');
+    personal.classList.toggle('fade-opacity');
+    everything.classList.toggle('fade-opacity');
+});
 
 const everything = document.getElementById("everything");
 everything.classList.toggle('fade-opacity');
+everything.addEventListener('click', function () {
+    bringClassToFront("everything-else"); toggleDots(1);
+    image.classList.toggle('blur');
+    about.classList.toggle('half-fade');
+    about.classList.toggle('no-click');
+    projects.classList.toggle('fade-opacity');
+    personal.classList.toggle('fade-opacity');
+    everything.classList.toggle('fade-opacity');
+});
 
-function toggleAllDots() {
-    dots = document.getElementsByClassName("pointer");
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.toggle('blur');
+function toggleDots(imageZ) {
+    console.log(image.style.zIndex)
+    if (image.style.zIndex == 1) {
+        console.log('visible to hidden')
+        image.style.zIndex = imageZ;
+    }
+    else {
+        console.log('hidden to visible')
+        image.style.zIndex = 1;
+    }
+}
+
+function bringClassToFront(className) {
+    classNameList = ["personal", "projects", "everything-else"];
+    elements = document.getElementsByClassName(className)
+    for (let i = 0; i < elements.length; i++) {
+        if (elements[i].className.includes("circle")) {
+            elements[i].style.zIndex = 2;
+        }
+        else {
+            elements[i].style.zIndex = 3;
+        }
+    }
+    classNameList.splice(classNameList.indexOf(className), 1)
+    for (let i = 0; i < classNameList.length; i++) {
+        elements = document.getElementsByClassName(classNameList[i])
+        for (let j = 0; j < elements.length; j++) {
+            elements[j].style.zIndex = -1;
+        }
     }
 }
 
@@ -33,7 +96,7 @@ function toggleBlurAbout() {
     aboutdesc.classList.toggle('fade-opacity');
     more.classList.toggle('half-fade');
     more.classList.toggle('no-click');
-    toggleAllDots()
+    toggleDots(4)
 }
 
 function toggleBlurMore() {
@@ -47,7 +110,7 @@ function toggleBlurMore() {
     projects.classList.toggle('fade-opacity');
     personal.classList.toggle('fade-opacity');
     everything.classList.toggle('fade-opacity');
-    toggleAllDots()
+    toggleDots(4)
 }
 
 function resizeImage() {
@@ -92,22 +155,13 @@ function rePlaceText(elem, pctTop, pctLeft) {
 function animateIcon(elem) {
     elem.classList.toggle('fade-opacity');
     elem.classList.toggle('scale');
+    if (!image.classList.contains('blur')) {
+        elem.style.filter = 'blur(0px)';
+    }
 
     if (elem.style.visibility == "visible") {
-        if (image.classList.contains('blur')) {
-            elem.style.filter = 'blur(1px)';
-        }
-        else {
-            elem.style.filter = 'blur(0px)';
-        }
         elem.style.visibility = "hidden";
     } else {
-        if (image.classList.contains('blur')) {
-            elem.style.filter = 'blur(1px)';
-        }
-        else {
-            elem.style.filter = 'blur(0px)';
-        }
         elem.style.visibility = "visible";
     }
 }
@@ -136,3 +190,4 @@ window.onresize = resizeEverything
 
 animateIcons()
 resizeEverything()
+bringClassToFront("projects")
