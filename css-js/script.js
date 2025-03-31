@@ -121,20 +121,25 @@ function toggleBlurMore() {
 }
 
 function resizeImage() {
+    // FIXME: good aspect ratio should be 1.777, not lower
     // decent aspect ratio
     if (1.333 <= (window.innerWidth / window.innerHeight) && (window.innerWidth / window.innerHeight) <= 1.777) {
         image.style.height = window.innerHeight + "px"
         image.style.width = window.innerHeight * (1920 / 1080) + "px"
+        console.log('good')
     }
     // width >> height : too wide
     else if (1.777 <= window.innerWidth / window.innerHeight) {
         image.style.width = window.innerWidth + "px"
         image.style.height = window.innerWidth * (1080 / 1920) + "px"
+        console.log('too wide')
+
     }
     // width << height : too tall
     else {
         image.style.height = window.innerHeight + "px"
         image.style.width = window.innerHeight * (1920 / 1080) + "px"
+        console.log('too tall')
     }
     window.scrollTo({
         // scrollHeight is the total screen size including scrolling
@@ -194,7 +199,8 @@ function resizeEverything() {
 }
 
 window.onresize = resizeEverything
+window.onload = resizeEverything
 
-animateIcons()
-resizeEverything()
-bringClassToFront("projects")
+bringClassToFront("projects");
+animateIcons();
+resizeEverything();
