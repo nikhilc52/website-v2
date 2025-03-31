@@ -26,7 +26,7 @@ html {
 
 .text {
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: large;
     min-width: 100%;
 }
@@ -86,7 +86,6 @@ html {
     max-width: 30%;
     top: 50px;
     left: 30px;
-    transition: visibility 1s ease;
     transition: opacity 1s ease;
     cursor: default;
 }
@@ -95,7 +94,7 @@ html {
     visibility: hidden;
     position: absolute;
     color: rgba(0, 0, 0, 0.712);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: small;
     max-width: 150px;
     min-width: 100px;

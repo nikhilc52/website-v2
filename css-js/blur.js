@@ -11,7 +11,7 @@ pointer-desc: 2 | 4 */
 // TODO:
 // Blurring of dots on selection
 // Fixing z-indexing returning null initially
-// Make descriptions go above pointers
+// Fix hiding when more element clicked
 
 const image = document.getElementById("image");
 image.style.zIndex = 1;
@@ -32,6 +32,7 @@ projects.classList.toggle('fade-opacity');
 projects.addEventListener('click', function () {
     bringClassToFront("projects"); moreElementClicked();
 });
+// add listeners for mouse over
 projects.addEventListener('mouseover', function () {
     personal.classList.add('half-fade');
     everything.classList.add('half-fade');
@@ -83,6 +84,7 @@ function moreElementClicked() {
     resizeEverything();
 }
 
+// toggle dots just toggles the imageZ position
 function toggleDots(imageZ) {
     if (image.style.zIndex == 1) {
         image.style.zIndex = imageZ;
@@ -92,10 +94,12 @@ function toggleDots(imageZ) {
     }
 }
 
+// brings one of the three classes in front, moves everything else behind
 function bringClassToFront(className) {
     classNameList = ["personal", "projects", "everything-else"];
     elements = document.getElementsByClassName(className)
     for (let i = 0; i < elements.length; i++) {
+        // if its a circle, it should be just behind
         if (elements[i].className.includes("circle")) {
             elements[i].style.zIndex = 2;
         }
@@ -103,6 +107,7 @@ function bringClassToFront(className) {
             elements[i].style.zIndex = 3;
         }
     }
+    // move all the others behind
     classNameList.splice(classNameList.indexOf(className), 1)
     for (let i = 0; i < classNameList.length; i++) {
         elements = document.getElementsByClassName(classNameList[i])
@@ -122,11 +127,14 @@ function toggleBlurAbout() {
 }
 
 function toggleBlurMore() {
+    // if they were coming from being visible, they need to be hidden
+    // - can just make them no click objects
     if (personal.style.visibility == 'visible') {
         personal.classList.toggle('no-click');
         everything.classList.toggle('no-click');
         projects.classList.toggle('no-click');
     }
+    // needed to set initially visible
     personal.style.visibility = 'visible'
     everything.style.visibility = 'visible'
     projects.style.visibility = 'visible'
@@ -140,4 +148,5 @@ function toggleBlurMore() {
     toggleDots(4)
 }
 
+// initially bring projects to the front as default
 bringClassToFront("projects");
