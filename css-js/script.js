@@ -8,6 +8,10 @@ circles : -1 | 2
 text: 5
 pointer-desc: 3 */
 
+// TODO:
+// Blurring of dots on selection
+// Fixing z-indexing returning null initially
+
 const image = document.getElementById("image");
 image.style.zIndex = 1;
 
@@ -32,6 +36,7 @@ projects.addEventListener('click', function () {
     projects.classList.toggle('fade-opacity');
     personal.classList.toggle('fade-opacity');
     everything.classList.toggle('fade-opacity');
+    resizeEverything();
 });
 
 const personal = document.getElementById("personal");
@@ -44,6 +49,7 @@ personal.addEventListener('click', function () {
     projects.classList.toggle('fade-opacity');
     personal.classList.toggle('fade-opacity');
     everything.classList.toggle('fade-opacity');
+    resizeEverything();
 });
 
 const everything = document.getElementById("everything");
@@ -56,6 +62,7 @@ everything.addEventListener('click', function () {
     projects.classList.toggle('fade-opacity');
     personal.classList.toggle('fade-opacity');
     everything.classList.toggle('fade-opacity');
+    resizeEverything();
 });
 
 function toggleDots(imageZ) {
