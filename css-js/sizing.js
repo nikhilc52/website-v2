@@ -1,18 +1,12 @@
 
 // TODO:
-// Fix aspect ratio in resizeImage() : should be 1.777, not lower
+// Chrome tab dragged out of group not resizing properly until user
 
 function resizeImage() {
-    // decent aspect ratio, fit height
-    if (1.333 <= (window.innerWidth / window.innerHeight) && (window.innerWidth / window.innerHeight) <= 1.777) {
-        image.style.height = window.innerHeight + "px"
-        image.style.width = window.innerHeight * (1920 / 1080) + "px"
-    }
     // width >> height : too wide, fit width
-    else if (1.777 <= window.innerWidth / window.innerHeight) {
+    if (1.777 <= window.innerWidth / window.innerHeight) {
         image.style.width = window.innerWidth + "px"
         image.style.height = window.innerWidth * (1080 / 1920) + "px"
-
     }
     // width << height : too tall, fit height
     else {
@@ -148,6 +142,7 @@ function resizeEverything() {
 // on both load and resize, resize all the icons/images
 window.onresize = resizeEverything
 window.onload = resizeEverything
+document.onvisibilitychange = resizeEverything
 
 // animate the icons and resize on startup
 animateIcons();
