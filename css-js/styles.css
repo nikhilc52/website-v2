@@ -18,6 +18,7 @@ html {
 #image {
     position: absolute;
     transition: filter 1s ease;
+    pointer-events: none;
 }
 
 .blur {
