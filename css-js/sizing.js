@@ -1,6 +1,7 @@
 
 // TODO:
 // Chrome tab dragged out of group not resizing properly until user
+// Reloading while saving cache (browser issue) messes sizing up
 
 function resizeImage() {
     // width >> height : too wide, fit width
