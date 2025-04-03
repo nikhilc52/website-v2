@@ -1,8 +1,3 @@
-
-// TODO:
-// Chrome tab dragged out of group not resizing properly until user
-// Reloading while saving cache (browser issue) messes sizing up
-
 function resizeImage() {
     // width >> height : too wide, fit width
     if (1.777 <= window.innerWidth / window.innerHeight) {
@@ -26,19 +21,37 @@ function resizeImage() {
 
 // replace singular icon (and circle) at given %'s
 function rePlaceIcon(elem, circleElem, pctTop, pctLeft) {
-    elem.style.top = pctTop * (document.documentElement.scrollHeight) + "px"
-    elem.style.left = pctLeft * (document.documentElement.scrollWidth) + "px"
-    elem.style.height = .01 * (document.documentElement.scrollHeight) + "px"
+    if (1.777 <= window.innerWidth / window.innerHeight) {
+        width = window.innerWidth
+        height = window.innerWidth * (1080 / 1920)
+    }
+    else {
+        height = window.innerHeight
+        width = window.innerHeight * (1920 / 1080)
+    }
 
-    circleElem.style.top = pctTop * (document.documentElement.scrollHeight) + "px"
-    circleElem.style.left = pctLeft * (document.documentElement.scrollWidth) + "px"
-    circleElem.style.height = .01 * (document.documentElement.scrollHeight) + "px"
+    elem.style.top = pctTop * (height) + "px"
+    elem.style.left = pctLeft * (width) + "px"
+    elem.style.height = .01 * (height) + "px"
+
+    circleElem.style.top = pctTop * (height) + "px"
+    circleElem.style.left = pctLeft * (width) + "px"
+    circleElem.style.height = .01 * (height) + "px"
 }
 
 // replace singular text element (no resizing for accessibility)
 function rePlaceText(elem, pctTop, pctLeft) {
-    elem.style.top = pctTop * (document.documentElement.scrollHeight) + "px"
-    elem.style.left = pctLeft * (document.documentElement.scrollWidth) + "px"
+    if (1.777 <= window.innerWidth / window.innerHeight) {
+        width = window.innerWidth
+        height = window.innerWidth * (1080 / 1920)
+    }
+    else {
+        height = window.innerHeight
+        width = window.innerHeight * (1920 / 1080)
+    }
+
+    elem.style.top = pctTop * (height) + "px"
+    elem.style.left = pctLeft * (width) + "px"
 }
 
 // animate icon

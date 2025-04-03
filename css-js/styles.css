@@ -91,6 +91,10 @@ html {
     cursor: default;
 }
 
+#i-am-desc{
+    transition: opacity 1s ease;
+}
+
 .pointer-desc {
     visibility: hidden;
     position: absolute;

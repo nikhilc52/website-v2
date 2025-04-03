@@ -123,7 +123,8 @@ function toggleBlurAbout() {
     aboutdesc.classList.toggle('fade-opacity');
     more.classList.toggle('half-fade');
     more.classList.toggle('no-click');
-    toggleDots(4)
+    toggleDots(4);
+    resizeEverything();
 }
 
 function toggleBlurMore() {
@@ -145,7 +146,8 @@ function toggleBlurMore() {
     projects.classList.toggle('fade-opacity');
     personal.classList.toggle('fade-opacity');
     everything.classList.toggle('fade-opacity');
-    toggleDots(4)
+    toggleDots(4);
+    resizeEverything();
 }
 
 // initially bring projects to the front as default
