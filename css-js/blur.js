@@ -21,7 +21,7 @@ const aboutdesc = document.getElementById("about-desc");
 aboutdesc.classList.toggle('fade-opacity');
 
 const about = document.getElementById("about");
-about.addEventListener('click', toggleBlurAbout);
+about.addEventListener('click', function () { clickAbout('about') });
 
 const more = document.getElementById("more");
 more.addEventListener('click', toggleBlurMore);
@@ -81,7 +81,6 @@ function moreElementClicked() {
     personal.classList.toggle('no-click');
     everything.classList.toggle('no-click');
     projects.classList.toggle('no-click');
-    resizeEverything();
 }
 
 // toggle dots just toggles the imageZ position
@@ -117,14 +116,29 @@ function bringClassToFront(className) {
     }
 }
 
-function toggleBlurAbout() {
-    aboutdesc.style.visibility = 'visible'
-    image.classList.toggle('blur');
-    aboutdesc.classList.toggle('fade-opacity');
-    more.classList.toggle('half-fade');
-    more.classList.toggle('no-click');
-    toggleDots(4);
-    resizeEverything();
+function anywhere() { clickAbout('anywhere') }
+
+async function clickAbout(position) {
+    if (position == 'about') {
+        aboutdesc.style.visibility = 'visible'
+        image.classList.toggle('blur');
+        aboutdesc.classList.toggle('fade-opacity');
+        more.classList.toggle('half-fade');
+        more.classList.toggle('no-click');
+        toggleDots(4);
+
+        await sleep(100)
+        window.addEventListener('click', anywhere)
+    }
+    else {
+        aboutdesc.style.visibility = 'visible'
+        image.classList.toggle('blur');
+        aboutdesc.classList.toggle('fade-opacity');
+        more.classList.toggle('half-fade');
+        more.classList.toggle('no-click');
+        toggleDots(4);
+        window.removeEventListener('click', anywhere)
+    }
 }
 
 function toggleBlurMore() {
@@ -147,7 +161,6 @@ function toggleBlurMore() {
     personal.classList.toggle('fade-opacity');
     everything.classList.toggle('fade-opacity');
     toggleDots(4);
-    resizeEverything();
 }
 
 // initially bring projects to the front as default

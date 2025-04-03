@@ -156,7 +156,6 @@ function resizeEverything() {
 // on both load and resize, resize all the icons/images
 window.onresize = resizeEverything
 window.onload = resizeEverything
-document.onvisibilitychange = resizeEverything
 
 // animate the icons and resize on startup
 animateIcons();
