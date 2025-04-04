@@ -3,7 +3,7 @@
 image: 1 | 4
 
 pointers: -1 | 3
-circles : -1 | 2
+circles : 0 | 2
 
 text: 5
 pointer-desc: 2 | 4 */
@@ -11,7 +11,7 @@ pointer-desc: 2 | 4 */
 // TODO:
 // Blurring of dots on selection
 // Fixing z-indexing returning null initially
-// Fix hiding when more element clicked
+// Fix hiding when more element clicked on mobile
 
 const image = document.getElementById("image");
 image.style.zIndex = 1;
@@ -81,6 +81,7 @@ function moreElementClicked() {
     personal.classList.toggle('no-click');
     everything.classList.toggle('no-click');
     projects.classList.toggle('no-click');
+    toggleClickingDots();
 }
 
 // toggle dots just toggles the imageZ position
@@ -93,16 +94,28 @@ function toggleDots(imageZ) {
     }
 }
 
+// toggles clicking for all of the dot
+function toggleClickingDots() {
+    classNameList = ["personal", "projects", "everything-else"];
+    for (let i = 0; i < classNameList.length; i++) {
+        elements = document.getElementsByClassName(classNameList[i])
+        for (let j = 0; j < elements.length; j++) {
+            elements[j].classList.toggle('no-click');
+        }
+    }
+}
+
 // brings one of the three classes in front, moves everything else behind
 function bringClassToFront(className) {
     classNameList = ["personal", "projects", "everything-else"];
     elements = document.getElementsByClassName(className)
     for (let i = 0; i < elements.length; i++) {
-        // if its a circle, it should be just behind
+        // if its a circle, it should be just ahead, don't mess with visibility
         if (elements[i].className.includes("circle")) {
             elements[i].style.zIndex = 2;
         }
         else {
+            elements[i].style.visibility = 'visible'
             elements[i].style.zIndex = 3;
         }
     }
@@ -111,14 +124,23 @@ function bringClassToFront(className) {
     for (let i = 0; i < classNameList.length; i++) {
         elements = document.getElementsByClassName(classNameList[i])
         for (let j = 0; j < elements.length; j++) {
-            elements[j].style.zIndex = -1;
+            // if its a circle, it should be just ahead, don't mess with visibility
+            if (elements[j].className.includes("circle")) {
+                elements[j].style.zIndex = 0;
+            }
+            else {
+                elements[j].style.visibility = 'hidden'
+                elements[j].style.zIndex = -1;
+            }
         }
     }
 }
 
+// helper function for clicking out of about
 function anywhere() { clickAbout('anywhere') }
 
 async function clickAbout(position) {
+    // if from the about button
     if (position == 'about') {
         aboutdesc.style.visibility = 'visible'
         image.classList.toggle('blur');
@@ -126,11 +148,15 @@ async function clickAbout(position) {
         more.classList.toggle('half-fade');
         more.classList.toggle('no-click');
         toggleDots(4);
+        toggleClickingDots();
 
+        // wait a bit to isolate the event
         await sleep(100)
+        // touchend for mobile
         window.addEventListener('click', anywhere)
         window.addEventListener('touchend', anywhere)
     }
+    // if we're clicking out
     else {
         aboutdesc.style.visibility = 'visible'
         image.classList.toggle('blur');
@@ -138,6 +164,9 @@ async function clickAbout(position) {
         more.classList.toggle('half-fade');
         more.classList.toggle('no-click');
         toggleDots(4);
+        toggleClickingDots();
+
+        // remove the listeners so clicking is normal
         window.removeEventListener('click', anywhere)
         window.removeEventListener('touchend', anywhere)
     }
@@ -163,6 +192,7 @@ function toggleBlurMore() {
     personal.classList.toggle('fade-opacity');
     everything.classList.toggle('fade-opacity');
     toggleDots(4);
+    toggleClickingDots();
 }
 
 // initially bring projects to the front as default
