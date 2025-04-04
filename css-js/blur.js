@@ -129,6 +129,7 @@ async function clickAbout(position) {
 
         await sleep(100)
         window.addEventListener('click', anywhere)
+        window.addEventListener('touchend', anywhere)
     }
     else {
         aboutdesc.style.visibility = 'visible'
@@ -138,6 +139,7 @@ async function clickAbout(position) {
         more.classList.toggle('no-click');
         toggleDots(4);
         window.removeEventListener('click', anywhere)
+        window.removeEventListener('touchend', anywhere)
     }
 }
 
