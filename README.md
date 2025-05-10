@@ -5,7 +5,7 @@ All the files used in the creation my personal [website](https://nikhilchinchalk
 ## Built with
 
 * **Blender**: Used for building the model
-* **HTML, CSS, JavaScript**: Implementing the intractability of the side 
+* **HTML, CSS, JavaScript**: Implementing the interactability of the site 
 
 ## Author
 
