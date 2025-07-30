@@ -76,11 +76,8 @@ function rePlaceIcons() {
     rePlaceIcon(document.getElementById("flag"), document.getElementById("flag-circle"), .35, .487)
     rePlaceText(document.getElementById("flag-desc"), .36, .487)
 
-    rePlaceIcon(document.getElementById("puck"), document.getElementById("puck-circle"), .365, .51)
-    rePlaceText(document.getElementById("puck-desc"), .385, .51)
-
-    rePlaceIcon(document.getElementById("newspaper"), document.getElementById("newspaper-circle"), .363, .55)
-    rePlaceText(document.getElementById("newspaper-desc"), .383, .55)
+    rePlaceIcon(document.getElementById("crossword"), document.getElementById("crossword-circle"), .363, .545)
+    rePlaceText(document.getElementById("crossword-desc"), .383, .51)
 
     rePlaceIcon(document.getElementById("building"), document.getElementById("building-circle"), .31, .587)
     rePlaceText(document.getElementById("building-desc"), .33, .587)
@@ -125,8 +122,7 @@ function rePlaceIcons() {
 function animateIcons() {
     animateIcon(document.getElementById("globe-circle"))
     animateIcon(document.getElementById("flag-circle"))
-    animateIcon(document.getElementById("puck-circle"))
-    animateIcon(document.getElementById("newspaper-circle"))
+    animateIcon(document.getElementById("crossword-circle"))
     animateIcon(document.getElementById("building-circle"))
     animateIcon(document.getElementById("resume-circle"))
 

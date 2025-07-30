@@ -1,5 +1,5 @@
 // list of tool tip points
-lst = ["globe","flag","puck","newspaper","building","resume",
+lst = ["globe","flag","crossword","building","resume",
     "computer","calendar","logo","fortune","drawing",
     "magazine","vinyl","canvas","gunner-book","coates-book"]
 
