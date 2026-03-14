@@ -1,12 +1,9 @@
 # Personal Website
 
-All the files used in the creation my personal [website](https://nikhilchinchalkar.com).
+### All the files used in the creation my personal [website](https://nikhilchinchalkar.com).
 
-## Built with
+### Built with **Blender** (4.1) and **TypeScript** (and HTML, CSS).
 
-* **Blender**: Used for building the model
-* **HTML, CSS, JavaScript**: Implementing the interactability of the site 
+All content written, coded, and arranged by Nikhil Chinchalkar.
 
-## Author
-
-* **Nikhil Chinchalkar**
+No Generative AI was used in the making of this project.
