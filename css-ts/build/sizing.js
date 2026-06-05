@@ -50,10 +50,10 @@ function animateIcon(elem) {
 }
 // place icons at given %'s
 function rePlaceIcons() {
-    rePlaceIcon(document.getElementById("globe"), document.getElementById("globe-circle"), .36, .445);
-    rePlaceText(document.getElementById("globe-desc"), .38, .445);
+    rePlaceIcon(document.getElementById("basketball"), document.getElementById("basketball-circle"), .374, .449);
+    rePlaceText(document.getElementById("basketball-desc"), .394, .445);
     rePlaceIcon(document.getElementById("flag"), document.getElementById("flag-circle"), .35, .487);
-    rePlaceText(document.getElementById("flag-desc"), .36, .487);
+    rePlaceText(document.getElementById("flag-desc"), .37, .487);
     rePlaceIcon(document.getElementById("crossword"), document.getElementById("crossword-circle"), .363, .545);
     rePlaceText(document.getElementById("crossword-desc"), .383, .51);
     rePlaceIcon(document.getElementById("building"), document.getElementById("building-circle"), .31, .587);
