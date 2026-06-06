@@ -2,31 +2,35 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XJCMMVS52"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-8XJCMMVS52');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikhil Chinchalkar</title>
-    <meta name="description" content="This is a model of my desk. Click on the icons to learn
-                more about my work.">
-    <meta name="keywords"
-        content="Nikhil Chinchalkar, Portfolio, Resume, Website">
+    <meta name="description"
+        content="Hi, I'm Nikhil Chinchalkar. I'm a data scientist, economist, computer scientist, and artist. This is a model of my desk.">
+    <meta property="og:description"
+        content="Hi, I'm Nikhil Chinchalkar. I'm a data scientist, economist, computer scientist, and artist. This is a model of my desk." />
+    <meta property="og:title" content="Nikhil Chinchalkar" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nikhilchinchalkar.com/" />
+    <meta property="og:image" content="https://nikhilchinchalkar.com/web-assets/desk-v5.webp" />
     <meta name="author" content="Nikhil Chinchalkar">
     <link rel="icon" type="image/png" href="web-assets/logo.webp">
     <link rel="stylesheet" href="css-ts/styles.css">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8XJCMMVS52"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-8XJCMMVS52');
-</script>
-
 <body id="body">
     <div class="background">
-        <img id="image" src="web-assets/desk-v4.webp" draggable="false" alt="A model of my desk.">
+        <img id="image" src="web-assets/desk-v5.webp" draggable="false" alt="A model of my desk.">
     </div>
     <div class="text">
         <h3 id="about">About</h3>
@@ -48,8 +52,8 @@
         <!-- begin projects -->
         <!-- must follow naming conventions for proper TS -->
 
-        <a href="https://nikhilc52.github.io/hot_hand/website/" target="_blank"><img
-                class="pointer projects" id="basketball" src="web-assets/dot.svg"></a>
+        <a href="https://nikhilc52.github.io/hot_hand/website/" target="_blank"><img class="pointer projects"
+                id="basketball" src="web-assets/dot.svg"></a>
         <img class="circle projects" id="basketball-circle" src="web-assets/circle.svg">
         <div class="pointer-desc" id="basketball-desc">
             <h5 style="margin: 1.3066vh;">
@@ -94,6 +98,16 @@
             </h5>
         </div>
 
+        <a href="https://nikhilc52.github.io/cdj_networks/" target="_blank"><img class="pointer projects" id="cdj"
+                src="web-assets/dot.svg"></a>
+        <img class="circle projects" id="cdj-circle" src="web-assets/circle.svg">
+        <div class="pointer-desc" id="cdj-desc">
+
+            <h5 style="margin: 1.3066vh;">
+                <i>The Cornell Data Journal Network</i>: a breakdown of a data science club that I lead
+            </h5>
+        </div>
+
         <a href="web-assets/web-resume.pdf" target="_blank"><img class="pointer projects" id="resume"
                 src="web-assets/dot.svg"></a>
         <img class="circle projects" id="resume-circle" src="web-assets/circle.svg">
@@ -104,6 +118,14 @@
         </div>
 
         <!-- begin personal -->
+
+        <img class="pointer personal" id="book" src="web-assets/dot.svg">
+        <img class="circle personal" id="book-circle" src="web-assets/circle.svg">
+        <div class="pointer-desc" id="book-desc">
+            <h5 style="margin: 1.3066vh;">
+                <i>The Joy of X</i> by Steven Strogatz, the last book I read
+            </h5>
+        </div>
 
         <img class="pointer personal" id="calendar" src="web-assets/dot.svg">
         <img class="circle personal" id="calendar-circle" src="web-assets/circle.svg">
@@ -180,7 +202,7 @@
         <div class="pointer-desc" id="canvas-desc">
 
             <h5 style="margin: 1.3066vh;">
-                "'Dropping Jewels' on the Use of Song Lyrics Against Young Thug"
+                "'Dropping Jewels' on the Use of Song Lyrics Against Young Thug": an essay about music and a RICO case
             </h5>
         </div>
 
