@@ -8,7 +8,7 @@ async function cycleAbout(index: number) {
     const list = ["a Data Scientist", "an Artist", "a Computer Scientist", "an Economist"]
     let trueIndex = index % 4;
 
-    iamdesc!.textContent = "I'm " + list[trueIndex] + ".";
+    iamdesc!.textContent = "I’m " + list[trueIndex] + ".";
     // fade in
     iamdesc!.classList.toggle('fade-opacity')
     // sleep for 2.5 secs

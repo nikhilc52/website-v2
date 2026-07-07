@@ -1,12 +1,15 @@
-/* Z-Indexes:
-
-image: 1 | 4
-
-pointers: -1 | 3
-circles : -1 | 2
-
-text: 5
-pointer-desc: 2 | 4*/
+:root {
+    --dark-gray: #363636;
+    --ImageHidden: 1;
+    --ImageVisible: 4;
+    --PointersHidden: -1;
+    --PointersVisible: 3;
+    --CirclesHidden: 0;
+    --CirclesVisible: 2;
+    --Text: 5;
+    --PointerDescHidden: 2;
+    --PointerDescVisible: 5;
+}
 
 body,
 html {
@@ -28,13 +31,23 @@ html {
 
 .text {
     color: white;
-    font-family: Helvetica, Arial, sans-serif;
     font-size: large;
-    min-width: 100%;
+
+    h3 {
+        font-family: "roboto-slab", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    h4 {
+        font-family: "franklin-gothic-std", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
 }
 
 #about {
-    z-index: 5;
+    z-index: var(--Text);
     position: fixed;
     top: 10px;
     left: 30px;
@@ -43,7 +56,7 @@ html {
 }
 
 #more {
-    z-index: 5;
+    z-index: var(--Text);
     position: fixed;
     top: 10px;
     right: 30px;
@@ -52,7 +65,7 @@ html {
 }
 
 #projects {
-    z-index: 5;
+    z-index: var(--Text);
     visibility: hidden;
     position: fixed;
     top: 50px;
@@ -62,7 +75,7 @@ html {
 }
 
 #personal {
-    z-index: 5;
+    z-index: var(--Text);
     visibility: hidden;
     position: fixed;
     top: 90px;
@@ -72,7 +85,7 @@ html {
 }
 
 #everything-else {
-    z-index: 5;
+    z-index: var(--Text);
     visibility: hidden;
     position: fixed;
     top: 130px;
@@ -82,7 +95,7 @@ html {
 }
 
 #about-desc {
-    z-index: 5;
+    z-index: var(--Text);
     visibility: hidden;
     position: fixed;
     max-width: 30%;
@@ -92,18 +105,24 @@ html {
     cursor: default;
 }
 
-#i-am-desc{
+#i-am-desc {
     transition: opacity 1s ease;
 }
 
 .pointer-desc {
     visibility: hidden;
     position: absolute;
-    color: rgba(0, 0, 0, 0.712);
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 1.742124vh; 
-    /* screen height of 765.33 === 13.333px */
-    
+
+    h5 {
+        margin: 1.3066vh;
+        color: var(--dark-gray);
+        font-family: "franklin-gothic-std", sans-serif;
+        font-weight: 400;
+        font-size: 1.742124vh;
+        line-height: 1.9608vh;
+    }
+    /* screen height of 765.33px === 100vh, so 15px : 1.96vh = 15/765 */
+
     max-width: max-content;
     min-width: 10vh;
     width: 20vh;
@@ -118,7 +137,7 @@ html {
     align-items: top;
     transition: opacity 1s ease;
     cursor: default;
-    z-index: 2;
+    z-index: var(--PointerDescHidden);
 }
 
 .pointer-desc-img {
@@ -131,7 +150,7 @@ html {
     position: absolute;
     cursor: pointer;
     transition: filter 1s ease;
-    z-index: -1;
+    z-index: var(--PointersHidden);
 }
 
 .circle {

@@ -52,12 +52,12 @@ function animateIcon(elem) {
 function rePlaceIcons() {
     rePlaceIcon(document.getElementById("basketball"), document.getElementById("basketball-circle"), .367, .447);
     rePlaceText(document.getElementById("basketball-desc"), .387, .447);
-    rePlaceIcon(document.getElementById("flag"), document.getElementById("flag-circle"), .35, .493);
-    rePlaceText(document.getElementById("flag-desc"), .37, .493);
-    rePlaceIcon(document.getElementById("crossword"), document.getElementById("crossword-circle"), .366, .535);
-    rePlaceText(document.getElementById("crossword-desc"), .386, .535);
-    rePlaceIcon(document.getElementById("building"), document.getElementById("building-circle"), .314, .576);
-    rePlaceText(document.getElementById("building-desc"), .334, .576);
+    rePlaceIcon(document.getElementById("win"), document.getElementById("win-circle"), .377, .502);
+    rePlaceText(document.getElementById("win-desc"), .397, .502);
+    rePlaceIcon(document.getElementById("crossword"), document.getElementById("crossword-circle"), .360, .556);
+    rePlaceText(document.getElementById("crossword-desc"), .380, .556);
+    rePlaceIcon(document.getElementById("building"), document.getElementById("building-circle"), .314, .588);
+    rePlaceText(document.getElementById("building-desc"), .334, .588);
     rePlaceIcon(document.getElementById("resume"), document.getElementById("resume-circle"), .617, .54);
     rePlaceText(document.getElementById("resume-desc"), .637, .54);
     rePlaceIcon(document.getElementById("cdj"), document.getElementById("cdj-circle"), .675, .523);
