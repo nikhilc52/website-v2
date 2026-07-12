@@ -1,8 +1,8 @@
 "use strict";
 var ZIndex;
 (function (ZIndex) {
-    ZIndex["PointerDescVisible"] = "4";
-    ZIndex["PointerDescHidden"] = "2";
+    ZIndex["PointerDescVisible"] = "5";
+    ZIndex["PointerDescHidden"] = "1";
 })(ZIndex || (ZIndex = {}));
 // list of tool tip points, pointers have the ID information
 const tooltips = pointerCircleElements.filter(x => x.elem.classList.contains('pointer'));

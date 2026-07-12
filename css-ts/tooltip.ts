@@ -1,6 +1,6 @@
 enum ZIndex {
-    PointerDescVisible = '4',
-    PointerDescHidden = '2'
+    PointerDescVisible = '5',
+    PointerDescHidden = '1'
 }
 
 // list of tool tip points, pointers have the ID information

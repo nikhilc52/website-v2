@@ -32,13 +32,13 @@ function rePlaceIcon(elem: HTMLElement, circleElem: HTMLElement, pctTop: number,
 
     elem.style.top = pctTop * (height) + "px"
     elem.style.left = pctLeft * (width) + "px"
-    elem.style.height = Math.round(.01 * (height)) + "px"
-    elem.style.width = Math.round(.01 * (height)) + "px"
+    elem.style.height = Math.max(2 * Math.round(.01 * (height) / 2), 2) + "px"
+    elem.style.width = Math.max(2 * Math.round(.01 * (height) / 2), 2) + "px"
 
     circleElem.style.top = pctTop * (height) + "px"
     circleElem.style.left = pctLeft * (width) + "px"
-    circleElem.style.height = Math.round(.01 * (height)) + "px"
-    circleElem.style.width = Math.round(.01 * (height)) + "px"
+    circleElem.style.height = Math.max(2 * Math.round(.01 * (height) / 2), 2) + "px"
+    circleElem.style.width = Math.max(2 * Math.round(.01 * (height) / 2), 2) + "px"
 }
 
 // replace singular text element (no resizing for accessibility)
@@ -47,6 +47,18 @@ function rePlaceText(elem: HTMLElement, pctTop: number, pctLeft: number) {
 
     elem.style.top = pctTop * (height) + "px"
     elem.style.left = pctLeft * (width) + "px"
+    elem.style.width = 0.115 * (width) + 'px'
+    elem.style.borderRadius = 0.026 * (height) + 'px'
+    const h5s = elem.getElementsByTagName('h5')
+    for (const h5 of h5s) {
+        h5.style.margin = 0.0130 * (height) + 'px'
+        h5.style.fontSize = 0.0174 * (height) + 'px'
+        h5.style.lineHeight = 0.0196 * (height) + 'px'
+    }
+    const imgs = elem.getElementsByTagName('img')
+    for (const img of imgs) {
+        img.style.marginBottom = 0.0130 * (height) + 'px'
+    }
 }
 
 // place icons at given %'s
