@@ -30,22 +30,27 @@
 </head>
 
 <body id="body">
-    <div class="background">
-        <img id="image" src="web-assets/desk-v6.webp" draggable="false" alt="A model of my desk.">
-    </div>
+    <img id="image" src="web-assets/desk-v6.webp" draggable="false" alt="A model of my desk.">
     <div class="text">
-        <h3 id="about">About</h3>
-        <h3 id="more">More</h3>
-        <div id="about-desc">
-            <h4>Hi, I&rsquo;m Nikhil Chinchalkar.</h4>
-            <h4 id="i-am-desc">I&rsquo;m a Data Scientist.</h4>
-            <h4>This is a model of my desk. Click on the icons to learn
-                more about my work.
-            </h4>
+        <div class="menus">
+            <h3 id="about">About</h3>
+            <h3 id="more">More</h3>
         </div>
-        <h4 id="projects">Projects</h4>
-        <h4 id="personal">Personal</h4>
-        <h4 id="everything-else">Everything Else</h4>
+
+        <div class="inner-menus">
+            <div id="about-menu">
+                <h4>Hi, I&rsquo;m Nikhil Chinchalkar.</h4>
+                <h4 id="i-am-desc-h4">I&rsquo;m <span id="i-am-desc">a Data Scientist.</span></h4>
+                <h4>This is a model of my desk. Click on the dots to learn
+                    more about me.
+                </h4>
+            </div>
+            <div id="more-menu">
+                <h4><span id="projects">Projects</span></h4>
+                <h4 id="personal-h4"><span id="personal">Personal</span></h4>
+                <h4><span id="everything-else">Everything Else</span></h4>
+            </div>
+        </div>
     </div>
 
     <div class="dots">
@@ -136,8 +141,7 @@
                 My calendar that I&rsquo;ve used through college
             </h5>
 
-            <img class="pointer-desc-img" src="web-assets/calendar.webp"
-                style="border-radius: 1.95993vh; width: 9.79969vh ; height: auto">
+            <img class="pointer-desc-img" src="web-assets/calendar.webp" style="width: 9.79969vh ; height: auto">
         </div>
 
         <img class="pointer personal" id="logo" src="web-assets/dot.svg">
@@ -148,8 +152,7 @@
                 My personal logo
             </h5>
 
-            <img class="pointer-desc-img" src="web-assets/lotus.webp"
-                style="border-radius: 1.95993vh; width:4.57319vh; height:auto ">
+            <img class="pointer-desc-img" src="web-assets/lotus.webp" style="width:4.57319vh; height:auto ">
         </div>
 
         <img class="pointer personal" id="fortune" src="web-assets/dot.svg">
@@ -164,8 +167,7 @@
                 &ldquo;There is no education like adversity&rdquo;
             </h5>
 
-            <img class="pointer-desc-img" src="web-assets/fortune.webp"
-                style="border-radius: 1.95993vh; width:9.79969vh; height:auto">
+            <img class="pointer-desc-img" src="web-assets/fortune.webp" style="width:9.79969vh; height:auto">
         </div>
 
         <img class="pointer personal" id="drawing" src="web-assets/dot.svg">

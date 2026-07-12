@@ -47,15 +47,6 @@ function rePlaceText(elem: HTMLElement, pctTop: number, pctLeft: number) {
     elem.style.left = pctLeft * (width) + "px"
 }
 
-// animate icon
-function animateIcon(elem: HTMLElement) {
-    elem.classList.toggle('fade-opacity');
-    elem.classList.toggle('scale');
-
-    // if we are coming from being visible, then hide the way back down
-    elem.style.visibility = elem.style.visibility == 'visible' ? 'hidden' : 'visible'
-}
-
 // place icons at given %'s
 function rePlaceIcons() {
     rePlaceIcon(document.getElementById("basketball")!, document.getElementById("basketball-circle")!, .367, .447)
@@ -112,16 +103,6 @@ function rePlaceIcons() {
     rePlaceText(document.getElementById("coates-book-desc")!, .84, .53)
 }
 
-// kickstart animation for all circles
-function animateIcons() {
-    for (const icon of pointerCircleElements) {
-        if (icon.elemClass.contains('circle')) {
-            animateIcon(icon.elem) // can also call animateIcon(document.getElementById("resume-circle"))
-        }
-    }
-    setTimeout(animateIcons, 3000);
-}
-
 // resize all the icons
 function resizeEverything() {
     resizeImage()
@@ -133,5 +114,5 @@ window.onresize = resizeEverything
 window.onload = resizeEverything
 
 // animate the icons and resize on startup
-animateIcons();
+// animateIcons();
 resizeEverything();
