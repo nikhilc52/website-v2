@@ -32,11 +32,13 @@ function rePlaceIcon(elem: HTMLElement, circleElem: HTMLElement, pctTop: number,
 
     elem.style.top = pctTop * (height) + "px"
     elem.style.left = pctLeft * (width) + "px"
-    elem.style.height = .01 * (height) + "px"
+    elem.style.height = Math.round(.01 * (height)) + "px"
+    elem.style.width = Math.round(.01 * (height)) + "px"
 
     circleElem.style.top = pctTop * (height) + "px"
     circleElem.style.left = pctLeft * (width) + "px"
-    circleElem.style.height = .01 * (height) + "px"
+    circleElem.style.height = Math.round(.01 * (height)) + "px"
+    circleElem.style.width = Math.round(.01 * (height)) + "px"
 }
 
 // replace singular text element (no resizing for accessibility)

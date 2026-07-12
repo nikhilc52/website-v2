@@ -64,6 +64,7 @@ function toggleDots(turningOn, className) {
         }
         else if (turningOn && p.elemType === className && p.elem.classList.contains('circle')) {
             p.elem.classList.add('explode-animation');
+            p.elem.style.animationDelay = 1 * Math.random() + 's';
         }
         else if (p.elem.classList.contains('circle')) {
             p.elem.classList.remove('explode-animation');

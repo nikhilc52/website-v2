@@ -136,13 +136,18 @@ html {
     opacity: 0;
     position: absolute;
     cursor: pointer;
-    transition: opacity 1s ease;
+    transition: opacity 0.5s ease;
+    border-radius: 50%;
+    background-color: white;
     z-index: var(--Pointers);
 }
 
 .circle {
     opacity: 0;
     position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 .explode-animation {
@@ -151,13 +156,13 @@ html {
 
 @keyframes explode {
     0% {
-        opacity: 1;
+        opacity: 0;
         scale: 1;
     }
 
-    75% {
-        opacity: 0;
-        scale: 10;
+    12.5% {
+        opacity: 1;
+        scale: 1;
     }
 
     100% {
