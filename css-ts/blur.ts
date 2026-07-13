@@ -80,7 +80,7 @@ function toggleDots(turningOn: boolean, className: string) {
         }
         else if (turningOn && p.elemType === className && p.elem.classList.contains('circle')) {
             p.elem.classList.add('explode-animation')
-            p.elem.style.animationDelay = 1*Math.random()+'s'
+            p.elem.style.animationDelay = 1 * Math.random() + 's'
         }
         else if (p.elem.classList.contains('circle')) {
             p.elem.classList.remove('explode-animation')
@@ -116,8 +116,6 @@ function clickMenuElement(elem: string) {
     }
     else {
         removeMenuElements();
-        // add touchend to this?
-        window.removeEventListener('click', removeMenuElements)
     }
 }
 
@@ -132,6 +130,8 @@ function removeMenuElements() {
     more.style.pointerEvents = 'all';
     toggleDots(true, classCurrentlyShowing.v);
     imageBlurred.v = false;
+    // add touchend to this?
+    window.removeEventListener('click', removeMenuElements)
 }
 
 toggleDots(true, classCurrentlyShowing.v); //initialize with projects

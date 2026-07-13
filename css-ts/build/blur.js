@@ -99,8 +99,6 @@ function clickMenuElement(elem) {
     }
     else {
         removeMenuElements();
-        // add touchend to this?
-        window.removeEventListener('click', removeMenuElements);
     }
 }
 function removeMenuElements() {
@@ -114,5 +112,7 @@ function removeMenuElements() {
     more.style.pointerEvents = 'all';
     toggleDots(true, classCurrentlyShowing.v);
     imageBlurred.v = false;
+    // add touchend to this?
+    window.removeEventListener('click', removeMenuElements);
 }
 toggleDots(true, classCurrentlyShowing.v); //initialize with projects
