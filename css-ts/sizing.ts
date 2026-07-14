@@ -14,61 +14,85 @@ function calculateDimensions() {
 }
 
 function resizeImage() {
-    image.style.width = calculateDimensions()[0] + "px"
-    image.style.height = calculateDimensions()[1] + "px"
+    image.style.width = calculateDimensions()[0] + 'px'
+    image.style.height = calculateDimensions()[1] + 'px'
     window.scrollTo({
         // scrollHeight is the total screen size including scrolling
         // innerHeight is the window size
         // goes halfway for centering
         top: (document.documentElement.scrollHeight - window.innerHeight) / 2,
         left: (document.documentElement.scrollWidth - window.innerWidth) / 2,
-        behavior: "smooth"
+        behavior: 'smooth'
     });
 }
 
-// 
+// reStyles a given icon (and implied description, circle, and mobile pointer) 
+// and places at given %s
 function reStyleIcon(id: string, pctTop: number, pctLeft: number) {
     const [width, height] = calculateDimensions()
+    // get elements corresponding to this id
     const elem = document.getElementById(id)!
     const circleElem = document.getElementById(id + '-circle')!
-    const descElem = document.getElementById(id + '-desc')!;
     const mobileElem = document.getElementById(id + '-mobile')!;
 
-    [elem, circleElem, descElem, mobileElem].forEach(x => {
+    // restyle description element (separate function)
+    const descElem = document.getElementById(id + '-desc')!;
+    reStyleDesc(descElem, pctTop, pctLeft);
+
+    // style each of the corresponding elements
+    [elem, circleElem, mobileElem].forEach(x => {
+        // if the element is a mobile pointer, only show when it's a mobile screen
         if (x.classList.contains('mobile-pointer')) {
-            if (window.innerWidth <= 768) {
-                x.style.visibility = 'visible'
-            }
-            else {
-                x.style.visibility = 'hidden'
-            }
+            x.style.visibility = window.innerWidth <= 768 ? 'visible' : 'hidden'
         }
-        if (x.classList.contains('pointer-desc')) {
-            x.style.top = (0.02 + pctTop) * (height) + "px"
-            x.style.left = pctLeft * (width) + "px"
-            x.style.width = 0.115 * (width) + 'px'
-            x.style.borderRadius = 0.026 * (height) + 'px'
-            const h5s = x.getElementsByTagName('h5')
-            for (const h5 of h5s) {
-                h5.style.margin = 0.0130 * (height) + 'px'
-                h5.style.fontSize = 0.0174 * (height) + 'px'
-                h5.style.lineHeight = 0.0196 * (height) + 'px'
-            }
-            const imgs = x.getElementsByTagName('img')
-            for (const img of imgs) {
-                img.style.marginBottom = 0.0130 * (height) + 'px'
-            }
-        }
-        else {
-            x.style.top = pctTop * (height) + "px"
-            x.style.left = pctLeft * (width) + "px"
-            x.style.height = Math.max(2 * Math.round(.01 * (height) / 2), 2) + "px"
-            x.style.width = Math.max(2 * Math.round(.01 * (height) / 2), 2) + "px"
-        }
+
+        // regardless, style the elements as below
+        x.style.top = pctTop * (height) + 'px'
+        x.style.left = pctLeft * (width) + 'px'
+        // round to nearest even pixel value (to ensure circle shape)
+        // and ensure pixel rounding only goes as low as 2px
+        x.style.height = Math.max(2 * Math.round(.01 * (height) / 2), 2) + 'px'
+        x.style.width = Math.max(2 * Math.round(.01 * (height) / 2), 2) + 'px'
     });
 }
 
-// place icons at given %'s
+// restyle description element, called by when restyling an icon
+function reStyleDesc(x: HTMLElement, pctTop: number, pctLeft: number) {
+    const [width, height] = calculateDimensions()
+
+    // note 0.02 is the % increase in height for the description
+    x.style.top = (0.02 + pctTop) * (height) + 'px'
+    x.style.left = pctLeft * (width) + 'px'
+    x.style.width = 0.115 * (width) + 'px'
+    x.style.borderRadius = 0.026 * (height) + 'px'
+
+    // get text for the description element
+    const h5s = x.getElementsByTagName('h5')
+    for (const h5 of h5s) {
+        h5.style.margin = 0.0130 * (height) + 'px'
+        h5.style.fontSize = 0.0174 * (height) + 'px'
+        h5.style.lineHeight = 0.0196 * (height) + 'px'
+    }
+
+    // get the image (if it exists) for the description element
+    const imgs = x.getElementsByTagName('img')
+    // adjust height by case
+    for (const img of imgs) {
+        switch (x.id.replace('-desc', '')) {
+            case 'logo':
+                img.width = 0.045 * (height)
+                break;
+            case 'fortune':
+            case 'drawing':
+            case 'calendar':
+                img.width = 0.15 * (height)
+                break;
+        }
+        img.style.marginBottom = 0.0130 * (height) + 'px'
+    }
+}
+
+// style icons at given %'s
 function reStyleIcons() {
     reStyleIcon('basketball', .367, .447)
     reStyleIcon('win', .377, .502)
@@ -89,16 +113,16 @@ function reStyleIcons() {
     reStyleIcon('coates-book', .82, .53)
 }
 
-// resize all the icons
+// resize the image/icons/tooltips
 function resizeEverything() {
     resizeImage()
     reStyleIcons()
     setTooltips()
 }
 
-// on both load and resize, resize all the icons/images
+// on both load and resize, resize all the icons/images/tooltips
 window.onresize = resizeEverything
 window.onload = resizeEverything
 
-// animate the icons and resize on startup
+// resize on startup
 resizeEverything();

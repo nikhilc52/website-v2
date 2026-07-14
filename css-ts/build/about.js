@@ -8,13 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const iamdesc = document.getElementById("i-am-desc");
+const iamdesc = document.getElementById('i-am-desc');
+// function that creates a promise that is resolved after a delay
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 function cycleAbout(index) {
     return __awaiter(this, void 0, void 0, function* () {
-        const list = ["a Data Scientist", "an Artist", "a Computer Scientist", "an Economist"];
+        const list = ['a Data Scientist', 'an Artist', 'a Computer Scientist', 'an Economist'];
         let trueIndex = index % 4;
-        iamdesc.textContent = list[trueIndex] + ".";
+        iamdesc.textContent = list[trueIndex] + '.';
         // fade in
         iamdesc.style.opacity = '1';
         // sleep for 2.5 secs
