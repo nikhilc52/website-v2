@@ -1,14 +1,16 @@
 :root {
     --dark-gray: #363636;
-    --ImageHidden: 1;
-    --ImageVisible: 4;
-    --PointersHidden: -1;
-    --PointersVisible: 3;
-    --CirclesHidden: 0;
-    --CirclesVisible: 2;
-    --Text: 5;
-    --PointerDescHidden: 2;
+    --Image: 0;
+    --PointerDescHidden: 1;
+    --Circles: 2;
+    --Text: 3;
+    --Pointers: 4;
     --PointerDescVisible: 5;
+    --MobilePointer: 6;
+}
+
+* {
+    /* border: 1px solid red; */
 }
 
 body,
@@ -23,153 +25,161 @@ html {
     position: absolute;
     transition: filter 1s ease;
     pointer-events: none;
-}
-
-.blur {
-    filter: blur(10px)
+    z-index: var(--Image);
 }
 
 .text {
     color: white;
-    font-size: large;
+    z-index: var(--Text);
+    position: fixed;
+    width: 100vw;
+}
+
+.menus {
+    display: flex;
+    justify-content: space-between;
 
     h3 {
+        font-size: 21px;
+        cursor: pointer;
+        margin: 30px;
+        margin-bottom: 0px;
         font-family: "roboto-slab", serif;
         font-weight: 400;
         font-style: normal;
+        transition: opacity 1s ease;
     }
+}
 
-    h4 {
+.inner-menus {
+    display: flex;
+    justify-content: space-between;
+
+    h4,
+    span {
+        font-size: 18px;
         font-family: "franklin-gothic-std", serif;
         font-weight: 400;
         font-style: normal;
+        opacity: 0.3;
+        transition: opacity 0.5s ease;
+        margin: 0;
     }
-}
 
-#about {
-    z-index: var(--Text);
-    position: fixed;
-    top: 10px;
-    left: 30px;
-    cursor: pointer;
-    transition: opacity 1s ease;
-}
+    h4 {
+        opacity: 1;
+    }
 
-#more {
-    z-index: var(--Text);
-    position: fixed;
-    top: 10px;
-    right: 30px;
-    cursor: pointer;
-    transition: opacity 1s ease;
-}
+    #personal-h4,
+    #i-am-desc-h4 {
+        margin: 15px 0;
+    }
 
-#projects {
-    z-index: var(--Text);
-    visibility: hidden;
-    position: fixed;
-    top: 50px;
-    right: 40px;
-    cursor: pointer;
-    transition: opacity 1s ease;
-}
+    #i-am-desc {
+        transition: opacity 1s ease;
+    }
 
-#personal {
-    z-index: var(--Text);
-    visibility: hidden;
-    position: fixed;
-    top: 90px;
-    right: 40px;
-    cursor: pointer;
-    transition: opacity 1s ease;
-}
+    #more-menu,
+    #about-menu {
+        width: 400px;
+        margin: 15px 30px;
+        opacity: 0;
+        transition: opacity 1s ease;
+        max-height: fit-content;
+        padding: 0 15px;
+    }
 
-#everything-else {
-    z-index: var(--Text);
-    visibility: hidden;
-    position: fixed;
-    top: 130px;
-    right: 40px;
-    cursor: pointer;
-    transition: opacity 1s ease;
-}
+    #more-menu {
+        text-align: right;
+        pointer-events: none;
+        border-right: 2px solid white;
 
-#about-desc {
-    z-index: var(--Text);
-    visibility: hidden;
-    position: fixed;
-    max-width: 30%;
-    top: 50px;
-    left: 30px;
-    transition: opacity 1s ease;
-    cursor: default;
-}
+        span {
+            cursor: pointer;
+        }
+    }
 
-#i-am-desc {
-    transition: opacity 1s ease;
+    #about-menu {
+        border-left: 2px solid white;
+    }
 }
 
 .pointer-desc {
-    visibility: hidden;
     position: absolute;
+    max-width: max-content;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: var(--PointerDescHidden);
 
     h5 {
-        margin: 1.3066vh;
         color: var(--dark-gray);
         font-family: "franklin-gothic-std", sans-serif;
         font-weight: 400;
-        font-size: 1.742124vh;
-        line-height: 1.9608vh;
     }
-    /* screen height of 765.33px === 100vh, so 15px : 1.96vh = 15/765 */
 
-    max-width: max-content;
-    min-width: 10vh;
-    width: 20vh;
-    height: auto;
+    img {
+        height: auto;
+    }
 
-    background-color: white;
-    text-align: center;
-    border-radius: 2.61325vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: top;
-    transition: opacity 1s ease;
-    cursor: default;
-    z-index: var(--PointerDescHidden);
-}
-
-.pointer-desc-img {
-    position: relative;
-    align-self: center;
-    padding-bottom: 1.3066vh;
+    /* screen height of 765.33px === 100vh, so 15px : 1.96vh = 15/765 (approximate for TS) */
 }
 
 .pointer {
+    opacity: 0;
     position: absolute;
+    pointer-events: none;
     cursor: pointer;
-    transition: filter 1s ease;
-    z-index: var(--PointersHidden);
+    transition: opacity 0.5s ease;
+    border-radius: 50%;
+    background-color: white;
+    z-index: var(--Pointers);
+}
+
+.mobile-pointer {
+    /* use visibility instead of pointer-events since pointer-events needs to be controlled by both blur.ts and tooltips.ts */
+    visibility: hidden;
+    cursor: pointer;
+    position: absolute;
+    /* background-color: rgba(255, 0, 0, 0.5); */
+    scale: 8;
+    border-radius: 50%;
+    z-index: var(--MobilePointer);
 }
 
 .circle {
-    position: absolute;
-    transition: transform 3s ease, opacity 3s ease;
-}
-
-.scale {
-    transform: scale(10);
-}
-
-.fade-opacity {
+    z-index: var(--Circles);
     opacity: 0;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
-.half-fade {
-    opacity: 0.5;
+/* animation class for animation called 'explode' that runs for 4s, infinite times, ease in and out */
+.explode-animation {
+    animation: explode 4s infinite ease;
 }
 
-.no-click {
-    pointer-events: none;
+/* since 4s total runtime, 0-0.5s nothing happens (0.5s since delay is ~U[0,1], so expected 1s) then 0.5s-4s, explode */
+/* note that after the initial delay, each animation has a 0.5s delay in between cycles */
+@keyframes explode {
+    0% {
+        opacity: 0;
+        scale: 1;
+    }
+
+    12.5% {
+        opacity: 1;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 10;
+    }
 }
