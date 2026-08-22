@@ -85,11 +85,11 @@ function reStyleDesc(x, pctTop, pctLeft) {
 }
 // style icons at given %'s
 function reStyleIcons() {
-    reStyleIcon('basketball', .367, .447);
+    reStyleIcon('basketball', .151, .602);
     reStyleIcon('win', .377, .502);
     reStyleIcon('crossword', .360, .556);
     reStyleIcon('building', .314, .588);
-    reStyleIcon('resume', .617, .54);
+    reStyleIcon('resume', .615, .538);
     reStyleIcon('cdj', .675, .523);
     reStyleIcon('computer', .55, .60);
     reStyleIcon('book', .32, .605);
@@ -102,6 +102,7 @@ function reStyleIcons() {
     reStyleIcon('canvas', .27, .499);
     reStyleIcon('gunner-book', .23, .629);
     reStyleIcon('coates-book', .82, .53);
+    reStyleIcon('lego', .404, .448);
 }
 // resize the image/icons/tooltips
 function resizeEverything() {

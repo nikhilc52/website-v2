@@ -159,7 +159,6 @@ function removeMenuElements() {
     more.style.pointerEvents = 'all';
     toggleDots(true, classCurrentlyShowing.v);
     imageBlurred.v = false;
-    // add touchend to this?
     // remove the listener on window, since more is now hidden (no longer needed)
     window.removeEventListener('click', removeMenuElements)
 }
