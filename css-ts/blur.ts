@@ -7,7 +7,7 @@ const image = document.getElementById('image')!;
 const about = document.getElementById('about')!;
 const aboutMenu = document.getElementById('about-menu')!;
 // use stopImmediatePropagation() to prevent a window listener from using the same event
-about.addEventListener('click', e => { e.stopImmediatePropagation(); clickMenuElement('about'); console.log('about') });
+about.addEventListener('click', e => { e.stopImmediatePropagation(); clickMenuElement('about');});
 
 const more = document.getElementById('more')!;
 const moreMenu = document.getElementById('more-menu')!;
